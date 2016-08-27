@@ -47,8 +47,12 @@ If you are using rails you may create an file under `RAILS_ROOT/config/initializ
         @message = co.response_text
     end
 
-
-
+## Verifying transactions
+    
+    if co.confirm(transactionRef)
+      //your logic e.g
+      @message  =  co.response_text
+    end
 
 
 ## Contributing
