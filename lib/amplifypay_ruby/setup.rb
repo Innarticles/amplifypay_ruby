@@ -9,13 +9,8 @@ module AmplifypayRuby
     ROOT_URL_BASE = "https://api.amplifypay.com"
 
     LIVE_CHECKOUT_INVOICE_BASE_URL = "#{ROOT_URL_BASE}/merchant/transact"
-    TEST_CHECKOUT_INVOICE_BASE_URL = "#{ROOT_URL_BASE}/sandbox-api/v1/checkout-invoice/create"
 
     LIVE_CHECKOUT_CONFIRM_BASE_URL = "#{ROOT_URL_BASE}/merchant/verify"
-    TEST_CHECKOUT_CONFIRM_BASE_URL = "#{ROOT_URL_BASE}/sandbox-api/v1/checkout-invoice/confirm/"
-
-    LIVE_OPR_BASE_URL = "#{ROOT_URL_BASE}/api/v1/opr/create"
-    TEST_OPR_BASE_URL = "#{ROOT_URL_BASE}/sandbox-api/v1/opr/create"
 
 
     def self.merchant_id=(merchant_id); @@merchant_id = merchant_id; end

@@ -1,12 +1,13 @@
-module AmplifyPay
+module AmplifypayRuby
   module Checkout
-    class Invoice < AmplifyPay::Checkout::Core
+    class Invoice < AmplifypayRuby::Checkout::Core
 
       attr_accessor :order_id, :total_amount, :redirect_url, :store, :paymentDescription
-      attr_accessor :customer, :status_desc, :trans_id, :transaction_ref, :response_text
+      attr_accessor :customer, :status_desc, :trans_id, :transaction_ref, :response_text, :invoice_url, :status_code
 
       def initialize
         @order_id = 0
+        @trans_id = 22
         @customer = {}
         @total_amount =  0.0
         @redirect_url  =  ""
@@ -23,7 +24,7 @@ module AmplifyPay
 
       def confirm(token)
         verification_payload = build_verification_payload(token)
-        result = http_json_request(AmplifypayRuby::Setup.checkout_base_url, verification_payload)
+        result = http_json_request(AmplifypayRuby::Setup.checkout_confirm_base_url, verification_payload)
 
         if result["StatusDesc"] == "Approved"
           # rebuild_invoice(result)
@@ -31,7 +32,6 @@ module AmplifyPay
           true
         else
           @status = result["status"]
-          @status = AmplifypayRuby::FAIL
           @response_text = "Invoice status is #{result['StatusDesc'].upcase}"
           false
         end
@@ -39,6 +39,7 @@ module AmplifyPay
 
       def create
         result = http_json_request(AmplifypayRuby::Setup.checkout_base_url,build_invoice_payload)
+        @store = result.inspect
         create_response(result)
       end
 
@@ -47,14 +48,14 @@ module AmplifyPay
          { 
           merchantId: AmplifypayRuby::Setup.merchant_id,
           apiKey: AmplifypayRuby::Setup.private_key, 
-          transID: @order.id, 
-          customerEmail: @customerEmail, 
-          customerName: @customerName, 
+          transID: @order_id, 
+          customerEmail: @customer["email"], 
+          customerName: @customer["name"], 
           Amount: @total_amount, 
           redirectUrl: @redirect_url , 
           paymentDescription: @paymentDescription
       }
-      end
+      end 
 
       def build_verification_payload(token)
          { 
@@ -70,8 +71,10 @@ module AmplifyPay
       end
 
       def create_response(result={})
+
         if result["StatusCode"] == "000"
           @status_desc = result["StatusDesc"]
+          @status_code = result["StatusCode"]
           @trans_id = result["TransID"]
           @transaction_ref = result["TransactionRef"]
           @auth_token = result["AuthToken"]

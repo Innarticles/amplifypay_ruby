@@ -1,3 +1,3 @@
-module AmplifypayRuby
+module AmplifypayRuby 
   VERSION = "1.0.0"
 end
