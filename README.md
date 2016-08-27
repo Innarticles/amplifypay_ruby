@@ -4,7 +4,7 @@
 AMplifyPay Payments Ruby Client Library
 
 ## Offical Documentation
-http://https://amplifypay.com/developers
+http://amplifypay.com/developers
 
 ## Installation
 
@@ -27,12 +27,12 @@ Or install it yourself as:
 ## Setup your API Keys
 If you are using rails you may create an file under `RAILS_ROOT/config/initializers` and put these setting there.
 
-    AMplifyPay::Setup.merchant_id = "YOUR_MERCHANT_ID" 
-    AMplifyPay::Setup.private_key = "YOUR_API_PRIVATE_KEY"
+    AmplifypayRuby::Setup.merchant_id = "YOUR_MERCHANT_ID" 
+    AmplifypayRuby::Setup.private_key = "YOUR_API_PRIVATE_KEY"
 
 ## Create your Checkout Invoice
 
-    co = AMplifyPay::Checkout::Invoice.new
+    co = AmplifypayRuby::Checkout::Invoice.new
 
 ## Set the total amount to be charged ! Important
 
