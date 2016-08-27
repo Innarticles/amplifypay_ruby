@@ -52,7 +52,7 @@ module AmplifypayRuby
           customerEmail: @customer["email"], 
           customerName: @customer["name"], 
           Amount: @total_amount, 
-          redirectUrl: @redirect_url , 
+          redirectUrl: AmplifypayRuby::Setup.redirect_url,
           paymentDescription: @paymentDescription
       }
       end 

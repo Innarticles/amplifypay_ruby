@@ -29,14 +29,18 @@ If you are using rails you may create an file under `RAILS_ROOT/config/initializ
 
     AmplifypayRuby::Setup.merchant_id = "YOUR_MERCHANT_ID" 
     AmplifypayRuby::Setup.private_key = "YOUR_API_PRIVATE_KEY"
+    AmplifypayRuby::Setup.redirect_url = "http://example.com/order"
+
 
 ## Create your Checkout Invoice
 
     co = AmplifypayRuby::Checkout::Invoice.new
 
-## Set the total amount to be charged ! Important
+## Set transaction details ! Important
 
     co.total_amount = 1200.99
+    co.customer = {"email" => "john.doe@mail.com", "name" => "John Doe"}
+    co.trans_id = 23437888888
 
 
 ## Redirecting to your checkout invoice page

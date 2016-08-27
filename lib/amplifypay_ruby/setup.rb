@@ -2,8 +2,7 @@ module AmplifypayRuby
   module Setup
     @@merchant_id = nil
     @@private_key = nil
-    @@public_key = nil
-    @@token = nil
+    @@redirect_url = nil
     @@mode = "test"
 
     ROOT_URL_BASE = "https://api.amplifypay.com"
@@ -17,6 +16,8 @@ module AmplifypayRuby
     def self.merchant_id; @@merchant_id; end
     def self.private_key=(private_key); @@private_key = private_key; end
     def self.private_key; @@private_key; end
+    def self.redirect_url=(redirect_url); @@redirect_url = redirect_url; end
+    def self.redirect_url; @@redirect_url; end
 
 
     def self.mode=(mode); @@mode = mode; end
