@@ -2,12 +2,11 @@ module AmplifypayRuby
   module Checkout
     class Invoice < AmplifypayRuby::Checkout::Core
 
-      attr_accessor :order_id, :total_amount, :redirect_url, :store, :paymentDescription
+      attr_accessor :total_amount, :redirect_url, :store, :paymentDescription
       attr_accessor :customer, :status_desc, :trans_id, :transaction_ref, :response_text, :invoice_url, :status_code
 
       def initialize
-        @order_id = 0
-        @trans_id = 22
+        @trans_id = "22"
         @customer = {}
         @total_amount =  0.0
         @redirect_url  =  ""
@@ -48,7 +47,7 @@ module AmplifypayRuby
          { 
           merchantId: AmplifypayRuby::Setup.merchant_id,
           apiKey: AmplifypayRuby::Setup.private_key, 
-          transID: @order_id, 
+          transID: @trans_id, 
           customerEmail: @customer["email"], 
           customerName: @customer["name"], 
           Amount: @total_amount, 
