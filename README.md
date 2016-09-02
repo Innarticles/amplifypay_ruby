@@ -68,6 +68,14 @@ If you are using rails you may create an file under `RAILS_ROOT/config/initializ
 5. Create new Pull Request
 
 
+
+## Thanks
+
+This gem draws heavily from:
+
+https://github.com/scambra/devise_invitable
+
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
