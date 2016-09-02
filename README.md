@@ -73,7 +73,7 @@ If you are using rails you may create an file under `RAILS_ROOT/config/initializ
 
 This gem draws heavily from:
 
-https://github.com/scambra/devise_invitable
+https://github.com/MPowerPayments/mpower_ruby
 
 
 ## License
