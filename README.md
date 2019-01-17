@@ -71,7 +71,7 @@ If you are using rails you may create an file under `RAILS_ROOT/config/initializ
 
 ## Thanks
 
-This gem draws heavily from:
+This gem draws ideas from:
 
 https://github.com/MPowerPayments/mpower_ruby
 
