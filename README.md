@@ -1,6 +1,6 @@
 
 # AmplifyPay Ruby Client API
-========================
+
 AMplifyPay Payments Ruby Client Library
 
 ## Offical Documentation
